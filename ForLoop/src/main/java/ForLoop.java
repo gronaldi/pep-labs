@@ -1,8 +1,9 @@
 
+    {ForLoop loop = new ForLoop();
+String numbers = loop.returnNumbers(1, 5);
+System.out.println(numbers); // prints "1 2 3 4"}
 
-public class ForLoop = new ForLoop();
-    String numbers = loop.returnNumbers(1, 5);
-    System.out.println(numbers); // prints "1 2 3 4"
+
     /**
      *
      * Let's try writing a for loop at the 'code here' point...
@@ -41,7 +42,7 @@ public class ForLoop = new ForLoop();
      *      @param end the value of i where the for loop should end (provided that the for loop is incremented with i++)
      *      @return the sum of all numbers between start and end, with start inclusive and end exclusive.
      */
-    public String returnNumbers(int start, int end){
-        String buildingString = "";
-        return buildingString;
-       
+    for (int i = start; i < end; i++) {
+    buildingString = buildingString + i + " ";
+    return buildingString;
+    }

@@ -1,6 +1,8 @@
 
 
-public class ForLoop {
+public class ForLoop = new ForLoop();
+    String numbers = loop.returnNumbers(1, 5);
+    System.out.println(numbers); // prints "1 2 3 4"
     /**
      *
      * Let's try writing a for loop at the 'code here' point...
@@ -41,10 +43,5 @@ public class ForLoop {
      */
     public String returnNumbers(int start, int end){
         String buildingString = "";
-
-        for (int i = start; i < end; i++) {
-        buildingString = buildingString + i +"";
-        }
-
         return buildingString;
-    }
+       

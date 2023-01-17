@@ -33,96 +33,95 @@ import java.sql.*;
  *      - https://www.postgresql.org/docs/9.5/functions-aggregate.html
  */
 public class AggregateFunctionsActivity {
-/**
- *   employee table
- *   |  id  |   first_name   |   last_name   |  salary  |
- *   --------------------------------------------------
- *   |1     |'Steve'         |'Garcia'       |67400.00  |
- *   |2     |'Alexa'         |'Smith'        |42500.00  |
- *   |3     |'Steve'         |'Jones'        |99890.99  |
- *   |4     |'Brandon'       |'Smith'        |120000    |
- *   |5     |'Adam'          |'Jones'        |55050.50  |
- *
- */
+    /**
+     *   employee table
+     *   |  id  |   first_name   |   last_name   |  salary  |
+     *   --------------------------------------------------
+     *   |1     |'Steve'         |'Garcia'       |67400.00  |
+     *   |2     |'Alexa'         |'Smith'        |42500.00  |
+     *   |3     |'Steve'         |'Jones'        |99890.99  |
+     *   |4     |'Brandon'       |'Smith'        |120000    |
+     *   |5     |'Adam'          |'Jones'        |55050.50  |
+     *
+     */
+    
+        public double problem1() {
+            /**
+             * Problem 1: use the SUM() aggregate function to output the total of all salaries found in the table.
+             * Note: the output should not contain any other info but the sum.
+             */
+            String sql = "SELECT SUM(salary) FROM employee;";
 
-    public double problem1() {
-        /**
-         * Problem 1: use the SUM() aggregate function to output the total of all salaries found in the table.
-         * Note: the output should not contain any other info but the sum.
-         */
-        String sql = FileUtil.parseSQLFile("problem1.sql");
-
-        double average = 0.0;
-        try {
-            Connection connection = ConnectionUtil.getConnection();
-            Statement s = connection.createStatement();
-            ResultSet rs =s.executeQuery(sql);
-
-            if(rs.next()) {
-                average = rs.getDouble(1);
+            double sum = 0.0;
+            try {
+                Connection connection = ConnectionUtil.getConnection();
+                Statement s = connection.createStatement();
+                ResultSet rs =s.executeQuery(sql);
+    
+                if(rs.next()) {
+                    sum = rs.getDouble(1);
+                }
+            } catch (SQLException e) {
+                System.out.println("problem1: " + e.getMessage() + '\n');
             }
-        } catch (SQLException e) {
-            System.out.println("problem1: " + e.getMessage() + '\n');
+    
+            return sum;
         }
-
-        return average;
-    }
-
-    public int problem2() {
-        /**
-         * Problem 2: use the COUNT() aggregate function to output the number of employees with the last name "Smith".
-         * Note: the output should not contain any other info but the count.
-         */
-        String sql = FileUtil.parseSQLFile("problem2.sql");
-
-
-        int count = 0;
-        try {
-            Connection connection = ConnectionUtil.getConnection();
-            Statement s = connection.createStatement();
-            ResultSet rs =s.executeQuery(sql);
-
-            if(rs.next()) {
-                count = rs.getInt(1);
+    
+        public double problem2() {
+            /**
+             * Problem 2: use the COUNT() aggregate function to output the number of employees with the last name "Smith".
+             * Note: the output should not contain any other info but the count.
+             */
+            String sql = "SELECT COUNT(*) FROM employee WHERE last_name = 'Smith';";
+    
+    
+            int count = 0;
+            try {
+                Connection connection = ConnectionUtil.getConnection();
+                Statement s = connection.createStatement();
+                ResultSet rs =s.executeQuery(sql);
+    
+                if(rs.next()) {
+                    count = rs.getInt(1);
+                }
+            } catch (SQLException e) {
+                System.out.println("problem2: " + e.getMessage() + '\n');
             }
-        } catch (SQLException e) {
-            System.out.println("problem2: " + e.getMessage() + '\n');
+    
+            return count;
+    
         }
-
-        return count;
-
-    }
-
-    public double problem3() {
-        /**
-         * Problem 3: use the MIN() aggregate function to return the lowest salary.
-         * Note: the output should not contain any other info but the salary.
-         */
-        String sql = FileUtil.parseSQLFile("problem3.sql");
-
-
-        double minimum = 0.0;
-        try {
-            Connection connection = ConnectionUtil.getConnection();
-            Statement s = connection.createStatement();
-            ResultSet rs =s.executeQuery(sql);
-
-            if(rs.next()) {
-                minimum = rs.getDouble(1);
+        public double problem3() {
+            /**
+             * Problem 3: use the MIN() aggregate function to return the lowest salary.
+             * Note: the output should not contain any other info but the salary.
+             */
+            String sql = "SELECT MIN(salary) FROM employee;";
+    
+    
+            double minimum = 0.0;
+            try {
+                Connection connection = ConnectionUtil.getConnection();
+                Statement s = connection.createStatement();
+                ResultSet rs =s.executeQuery(sql);
+    
+                if(rs.next()) {
+                    minimum = rs.getDouble(1);
+                }
+            } catch (SQLException e) {
+                System.out.println("problem3: " + e.getMessage() + '\n');
             }
-        } catch (SQLException e) {
-            System.out.println("problem3: " + e.getMessage() + '\n');
+    
+            return minimum;
         }
-
-        return minimum;
-    }
-
-    public double problem4() {
-        /**
-         * Problem 4: use the MAX() aggregate function to return the highest salary.
-         * Note: the output should not contain any other info but the salary.
-         */
-        String sql = FileUtil.parseSQLFile("problem4.sql");
+    
+        public double problem4() {
+            /**
+             * Problem 4: use the MAX() aggregate function to return the highest salary.
+             * Note: the output should not contain any other info but the salary.
+             */
+        String sql = "SELECT MAX(salary) FROM employee;";
 
 
         double maximum = 0.0;

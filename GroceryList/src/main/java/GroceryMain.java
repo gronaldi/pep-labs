@@ -21,23 +21,24 @@ public class GroceryMain {
                     "\n 1: Try to add a grocery item." +
                     "\n 2: See all the groceries."+
                     "\n 3: Quit");
-            Scanner inputScanner = new Scanner(System.in);
-            int inputSelection = inputScanner.nextInt();
-            inputScanner.nextLine();
-            switch (inputSelection) {
-                case 1:
-                    System.out.println("What grocery would you like to add?");
-                    String grocery = inputScanner.nextLine();
-                    groceryDAO.addGrocery(grocery);
-                    break;
-                case 2:
-                    System.out.println("Here are all the groceries: ");
-                    groceryDAO.getAllGroceries();
-                    break;
-                case 3:
-                    System.out.println("Goodbye!");
-                    active = false;
-                    break;
+            try (Scanner inputScanner = new Scanner(System.in)) {
+                int inputSelection = inputScanner.nextInt();
+                inputScanner.nextLine();
+                switch (inputSelection) {
+                    case 1:
+                        System.out.println("What grocery would you like to add?");
+                        String grocery = inputScanner.nextLine();
+                        groceryDAO.addGrocery(grocery);
+                        break;
+                    case 2:
+                        System.out.println("Here are all the groceries: ");
+                        groceryDAO.getAllGroceries();
+                        break;
+                    case 3:
+                        System.out.println("Goodbye!");
+                        active = false;
+                        break;
+                }
             }
         }
     }

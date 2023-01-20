@@ -27,7 +27,7 @@ public class GroceryDAO {
         Connection connection = ConnectionUtil.getConnection();
         List<String> groceries = new ArrayList<>();
         try {
-            //Write SQL logic here
+        
             String sql = "change me";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -47,7 +47,7 @@ public class GroceryDAO {
     public void addGrocery(String groceryName){
         Connection connection = ConnectionUtil.getConnection();
         try {
-            //Write SQL logic here
+            
             String sql = "change me";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.executeUpdate();

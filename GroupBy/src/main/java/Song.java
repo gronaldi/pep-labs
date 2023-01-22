@@ -6,18 +6,19 @@ public class Song {
     private String artist;
     private String album;
     private String song;
+    private String songName;
 
-    public Song(Integer id, String artist, String album, String song) {
+    public Song(Integer id, String artist, String album, String songName) {
         this.id = id;
         this.artist = artist;
         this.album = album;
-        this.song = song;
+        this.songName = songName;
     }
 
-    public Song(String artist, String album, String song) {
+    public Song(String artist, String album, String songName) {
         this.artist = artist;
         this.album = album;
-        this.song = song;
+        this.songName =songName;
     }
 
     public Song() {
@@ -59,8 +60,8 @@ public class Song {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Song song1 = (Song) o;
-        return Objects.equals(id, song1.id) && Objects.equals(artist, song1.artist) && Objects.equals(album, song1.album) && Objects.equals(song, song1.song);
+        Song song = (Song) o;
+        return Objects.equals(id, song.id) && Objects.equals(artist, song.artist) && Objects.equals(album, song.album) && Objects.equals(song, song1.song);
     }
 
     @Override
@@ -70,11 +71,11 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" +
+        return "SongName{" +
                 "id=" + id +
                 ", artist='" + artist + '\'' +
                 ", album='" + album + '\'' +
-                ", song='" + song + '\'' +
+                ",song='" +songName + '\'' +
                 '}';
     }
 }

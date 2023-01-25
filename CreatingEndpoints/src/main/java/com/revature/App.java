@@ -12,10 +12,6 @@ public class App
      * Before this endpoint will return any information to you request, you will need to write that logic in
      * JavalinSingleton.java
      */
-    public static void main( String[] args )
-    {
-        Javalin app = JavalinSingleton.getInstance();
-
-        app.start(9000);
+    public static void main(String[] args) {
+        Javalin.create().start(9000).routes(new MyController());
     }
-}

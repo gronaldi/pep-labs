@@ -12,8 +12,10 @@ public class JavalinSingleton {
      * Note: Please refer to the "CreatingEndpoints.MD" file for more assistance if needed.
      */
     public static Javalin getInstance(){
-        Javalin app = Javalin.create();
-        
+        Javalin app = Javalin.create(config -> {
+            config.enableCorsForAllOrigins();
+            config.addStaticFiles("/public");
+        });
         //write endpoint here
         int port=9000;
         app.start(port); 

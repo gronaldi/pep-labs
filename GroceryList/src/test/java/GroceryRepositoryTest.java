@@ -37,7 +37,7 @@ public class GroceryRepositoryTest {
     @Test
     public void groceryListAddTest1(){
         List<String> expectedOutput = new ArrayList<>();
-        expectedOutput.add ("apples");
+        expectedOutput.add("apples");
         
         groceryDAO.addGrocery("apples");
 

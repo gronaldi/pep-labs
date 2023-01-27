@@ -1,5 +1,7 @@
 package com.revature;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.javalin.Javalin;
 
 /**
@@ -17,22 +19,19 @@ public class JavalinSingleton {
          * Note: Please refer to the "RequestBody.MD" file for more assistance if needed.
          */
         app.post("/problem1", ctx -> {
-                //implement logic here
+            String jsonString = ctx.body();
+            ObjectMapper om = new ObjectMapper();
+            Song song = om.readValue(jsonString, Song.class); 
+            ctx.result(song.getArtistName());
         });
-
-        /**
-         * problem2: retrieve the song object from the request body...
-         *      1. update the artist in the song object to "Beatles"
-         *      2. return the updated song object in the response body
-         * 
-         * Note: Please refer to the "RequestBody.MD" file for more assistance if needed.
-         */
-        app.post("/problem2", ctx -> {
-               //implement logic here
+        return app.post("/problem2", ctx -> {
+            String jsonString = ctx.body();
+            ObjectMapper om = new ObjectMapper();
+            Song song = om.readValue(jsonString, Song.class);
+            song.setArtistName("Beatles");
+            ctx.json(song);
         });
-
-
-        return app;
     }
-    
 }
+  
+  

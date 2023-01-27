@@ -14,13 +14,7 @@ public class JavalinSingleton {
          */
         app.get("/client-side-err", ctx -> {
             ctx.status(400);
-            ctx.result("Bad Request: Invalid or malformed request.");
         });
-            //write logic here
-
-        
-
         return app;
     }
-    
 }

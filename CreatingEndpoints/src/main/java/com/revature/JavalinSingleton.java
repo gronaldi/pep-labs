@@ -12,17 +12,10 @@ public class JavalinSingleton {
      * Note: Please refer to the "CreatingEndpoints.MD" file for more assistance if needed.
      */
     public static Javalin getInstance(){
-        Javalin app = Javalin.create(config -> {
-            config.enableCorsForAllOrigins();
-            config.addStaticFiles("/public");
-        });
-        //write endpoint here
-        int port=9000;
-        app.start(port); 
-        app.get("/get-request", ctx -> {
+        Javalin app = Javalin.create();
+        app.get("/hello", ctx ->{
             ctx.result("Hello World");
-            });
+        });
         return app;
     }
-    
 }

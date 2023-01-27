@@ -1,7 +1,6 @@
 package com.revature;
 
 import io.javalin.Javalin;
-import io.javalin.apibuilder.EndpointGroup;
 
 
 public class App 
@@ -14,5 +13,7 @@ public class App
      * JavalinSingleton.java
      */
     public static void main(String[] args) {
-        Javalin.create().start(9000).routes((EndpointGroup) new MyController());
+        Javalin app = JavalinSingleton.getInstance();
+        app.start(9000);
     }
+}

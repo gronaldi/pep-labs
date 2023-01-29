@@ -11,8 +11,8 @@ public class OtherStringMethods {
      * @return
      */
     public String partOfString(String s, int start, int end){
-        return "";
-    }
+        return s.substring(start, end);
+        }
 
     /**
      * All classes have methods equals and toString because they inherit them from the Object class by extending the
@@ -26,9 +26,8 @@ public class OtherStringMethods {
      * and 0 if s1 is equivalent to s2.
      */
     public int compareLexigraphically(String s1, String s2){
-        return 0;
-    }
-
+        return s1.compareTo(s2);
+        }
     /**
      * The split method is useful for dividing a string into multiple strings, most notably for dividing a sentence
      * into its constituent words. For instance, if String sentence = "my favorite sentence", sentence.split(" ")
@@ -39,6 +38,6 @@ public class OtherStringMethods {
      * @return an array of Strings that represent s1 split by splitAround.
      */
     public String[] splitStringIntoMultipleStrings(String s1, String splitAround){
-        return null;
-    }
+        return s1.split(splitAround);
+        }
 }

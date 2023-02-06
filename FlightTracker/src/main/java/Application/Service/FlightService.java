@@ -45,7 +45,9 @@ public class FlightService {
      *         inform our provide the front-end client with information about the added Flight.
      */
     public Flight addFlight(Flight flight){
-        return null;
+        Flight id = flightDAO.insertFlight(flight);
+        flight.setFlight_id(id);
+        return flight;
     }
 
     /**
@@ -61,19 +63,14 @@ public class FlightService {
      *         user should have some insight if they attempted to edit a nonexistent flight.)
      */
     public Flight updateFlight(int flight_id, Flight flight){
-        return null;
+        Flight currentFlight = flightDAO.getFlightById(flight_id);
+        if (currentFlight == null) {
+            return null;
+        }
+        flight.setId(flight_id);
+        flightDAO.updateFlight(flight_id, flight);
+        return flightDAO.getFlightById(flight_id);
     }
-
-    /**
-     * TODO: Use the FlightDAO to retrieve a List containing all flights.
-     * You could use the flightDAO.getAllFlights method.
-     *
-     * @return all flights in the database.
-     */
-    public List<Flight> getAllFlights() {
-        return null;
-    }
-
     /**
      * TODO: Use the FlightDAO to retrieve a List containing all flights departing from a certain city and arriving at
      * some other city. You could use the flightDAO.getAllFlightsFromCityToCity method.
@@ -83,6 +80,11 @@ public class FlightService {
      * @return all flights departing from departure_city and arriving at arrival_city.
      */
     public List<Flight> getAllFlightsFromCityToCity(String departure_city, String arrival_city) {
+        List<Flight> flights = flightDAO.getAllFlightsFromCityToCity(departure_city, arrival_city);
+        return flights;
+    }
+
+    public Object getAllFlights() {
         return null;
     }
 }

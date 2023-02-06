@@ -2,7 +2,7 @@
 :lab_name: pep-labs
 :repo_path: "/workspace/revpro-cli/pep-labs"
 :previous_lab: 
-:current_lab: 
+:current_lab: ParentObjectClassMethods
 :origin_remote: https://github.com/gronaldi/pep-labs
 :repo_clone_folder: "/workspace/revpro-cli/pep-labs"
 :github_username: gronaldi
@@ -42,10 +42,10 @@
   :count_labs_total: 96
   :count_labs_passed: 0
   :count_tests_total: 361
-  :count_tests_passed: 0
+  :count_tests_passed: 1
 :progress_test:
   :count_tests_total: 361
-  :count_tests_passed: 0
+  :count_tests_passed: 1
   Start:
     :Week: 1
     :Order: 1
@@ -911,7 +911,7 @@
     :Order: 1
     :Type: lab
     :count_tests: 9
-    :count_tests_passed: 0
+    :count_tests_passed: 1
     :tests:
       implementEqualsMethodTest1: 0
       implementEqualsMethodTest2: 0
@@ -922,6 +922,19 @@
       toStringTest2: 0
       toStringTest3: 0
       toStringTest4: 0
+      getAllFlightsTest1: 0
+      addFlightCheckAllFlightsTest1: 0
+      getFlightsDAOFromCityToCityTest1: 0
+      addFlightCheckByIdTest1: 0
+      getFlightByIDTest1: 0
+      getFlightByIDTest2: 0
+      updateFlightTest1: 0
+      getAllFlightsTest: 0
+      getFlightsFromCityToCityTest1: 0
+      getFlightsFromCityToCityTest2: 0
+      updateFlightTestNonExistent: 1
+      updateFlightDAOTest1: 0
+      addFlightTest: 0
   Overriding:
     :Week: 8
     :Order: 2
